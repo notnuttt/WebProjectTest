@@ -11,7 +11,7 @@ if ($_FILES['imgage']['name'] != "" ) {
       die( "Upload error with code ".$_FILES["imgage"]["error"]);
 }else die("You did not specify an input file or file excedd form");
 
-$insert_query_string = "INSERT INTO `menu`(`name`, `price`, `des`, `img`, `amount`) VALUES ('".$name."', ".$price.", '".$des."', '/OnlineStore/food/".$filename."', ".$amount.");";
+$insert_query_string = "INSERT INTO `menu`(`name`, `price`, `des`, `img`, `amount`) VALUES ('".$name."', ".$price.", '".$des."', '/WebProjectTest/food/".$filename."', ".$amount.");";
 $query_insert = mysqli_query($conn, $insert_query_string);
 if (!$query_insert) {
     printf("Error: %s\n", mysqli_error($conn));
