@@ -5,9 +5,11 @@
 	$name = $_REQUEST['itemName'];
 	$price = $_REQUEST['price'];
 	$des = $_REQUEST['itemDes'];
+	$amount = $_REQUEST['amount'];
+
 
 	// Update item
-	$sql_update = 'UPDATE `menu` SET `name`= "'.$name.'",`price`= "'.$price.'",`des`= "'.des.'" WHERE ID = "'.$id.'";';
+	$sql_update = 'UPDATE `menu` SET `name`= "'.$name.'",`price`= "'.$price.'",`des`= "'.$des.'",`amount`= "'.$amount.'" WHERE ID = "'.$id.'";';
 	$query = mysqli_query($conn, $sql_update);
 
 	if(!$query){

@@ -116,8 +116,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <?php }else if($_SESSION['status'] == 'user'){ ?>
           <div class="w3-display-middle w3-display-hover">
             <form method="POST" action="addCart.php">
-            <input type="hidden" value="<?php echo $id; ?>" name="id">
-            <input type="hidden" value="<?php echo $array_food['name']; ?>" name="name">
+              <input type="hidden" value="<?php echo $id; ?>" name="id">
+              <input type="hidden" value="<?php echo $array_food['name']; ?>" name="name">
               <input type="hidden" value="<?php echo $array_food['price']; ?>" name="price">
               <input type="hidden" value="<?php echo $array_food['img']; ?>" name="image">
               <input type="hidden" value="1" name="quantity">
@@ -126,7 +126,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         </div>
 
         <?php } ?>  </div>
-        <p><?php echo $array_food['name']; ?><br><b><?php echo $array_food['price']; ?> Baht.</b></p>
+        <p><?php echo $array_food['name']; ?><br><b><?php echo $array_food['price']; ?> Baht.</b><br><?php echo $array_food['amount']; ?> available.</p>
       </div>
 <?php    }
   ?>
@@ -187,6 +187,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       <form method="POST" action="addItem.php" enctype="multipart/form-data">
         <p><input class="w3-input w3-border" type="text" placeholder="Enter Name" name="itemName"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Price" name="price"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Amount" name="amount"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Enter Desciption (If any)" name="itemDes"></p>
         <p><input class="w3-input w3-border" type="file" placeholder="Enter Image path" name="imgage"></p>
         <input type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('addItem').style.display='none'" value="Add Item">
@@ -212,6 +213,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
               <input type ="hidden" name="id" value="<?php echo $id; ?>">
                 <p><input class="w3-input w3-border" type="text" placeholder="Enter Name" name="itemName" value="<?php echo $array_food['name']; ?>"></p>
                 <p><input class="w3-input w3-border" type="number" placeholder="Price" name="price" value="<?php echo $array_food['price']; ?>"></p>
+                <p><input class="w3-input w3-border" type="number" placeholder="Amount" name="amount" value="<?php echo $array_food['amount']; ?>"></p>
                 <p><input class="w3-input w3-border" type="text" placeholder="Enter Desciption (If any)" name="itemDes" value="<?php echo $array_food['des']; ?>"></p>
                 <input type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('<?php echo $id; ?>').style.display='none'" value="Update">
                 </form>
@@ -223,6 +225,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 ?>
 
 
+<!-- Add to cart -->
 <?php
 if(isset($_COOKIE[$shopping_cart_name])){
   $cookie_data = stripslashes($_COOKIE[$shopping_cart_name]);
