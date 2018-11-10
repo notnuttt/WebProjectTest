@@ -4,7 +4,7 @@ ini_set('display_errors', 0);
 session_start();
 include("conn.php");
 
-$sql_query_food = 'SELECT * FROM MENU WHERE 1';
+$sql_query_food = 'SELECT * FROM menu WHERE 1';
 $query_food = mysqli_query($conn, $sql_query_food);
 $query_food2 = mysqli_query($conn, $sql_query_food);
 
