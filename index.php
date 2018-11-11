@@ -248,7 +248,7 @@ if(isset($_COOKIE[$shopping_cart_name])){
   foreach($cart_data as $keys => $values){ ?>
   <th><img src="<?php echo $values["item_img"];; ?>" style="width: 30px; height: 30px;"></th>
   <td><a href="product_detail.php?idq=<?php echo $values["item_id"]; ?>"><?php echo $values["item_name"]; ?></a></td>
-  <td><?php echo $values["item_quantity"]; ?></td>
+  <td align="right"><?php echo $values["item_quantity"]; ?>x</td>
   <td align="right"> <?php echo $values["item_price"]; ?></td>
     
                 
