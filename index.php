@@ -30,7 +30,7 @@ echo $total;
 <!DOCTYPE html>
 
 <html>
-<title>N&N Café</title>
+<title>NJ Network Device</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -238,7 +238,7 @@ if(isset($_COOKIE[$shopping_cart_name])){
               <p style="align:center">Please checkout.</p>
               <table align="center">
               <tr>
-    <th>Img</th>
+    <th></th>
     <th>Name</th>
     <th>Amount</th>
     <th>Price</th>
