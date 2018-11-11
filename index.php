@@ -126,7 +126,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         </div>
 
         <?php } ?>  </div>
-        <p><a href="product_detail.php/?idq=<?php echo $id; ?>"><?php echo $array_food['name']; ?></a><br><b><?php echo $array_food['price']; ?> Baht.</b><br><?php echo $array_food['amount']; ?> available.</p>
+        <p><a href="product_detail.php/?idq=<?php echo $id; ?>" style="text-decoration: none"><?php echo $array_food['name']; ?></a><br><b><?php echo $array_food['price']; ?> Baht.</b><br><?php echo $array_food['amount']; ?> available.</p>
       </div>
 <?php    }
   ?>
@@ -248,7 +248,7 @@ if(isset($_COOKIE[$shopping_cart_name])){
   foreach($cart_data as $keys => $values){ ?>
   <th><img src="<?php echo $values["item_img"];; ?>" style="width: 30px; height: 30px;"></th>
   <td><a href="product_detail.php?idq=<?php echo $values["item_id"]; ?>"><?php echo $values["item_name"]; ?></a></td>
-  <td align="right"><?php echo $values["item_quantity"]; ?>x</td>
+  <td><input type="number" ></td>
   <td align="right"> <?php echo $values["item_price"]; ?></td>
     
                 
