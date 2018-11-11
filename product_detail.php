@@ -4,9 +4,10 @@ ini_set('display_errors', 0);
 session_start();
 include("conn.php");
 
-$sql_query_food = 'SELECT * FROM menu WHERE 1';
-$query_food = mysqli_query($conn, $sql_query_food);
-$query_food2 = mysqli_query($conn, $sql_query_food);
+$idq = $_REQUEST['idq'];
+
+$sql_query_product = 'SELECT * FROM menu WHERE id = '.$idq;
+$query_food = mysqli_query($conn, $sql_query_product);
 
 $username = $_SESSION['username'];
 $shopping_cart_name = $username."_shopping_cart";
@@ -41,6 +42,11 @@ echo $total;
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 </style>
 <body class="w3-content" style="max-width:1200px">
 
@@ -98,39 +104,31 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
   <!-- Product grid -->
   <div class="w3-row-padding">
-  
-  <?php
-    while($array_food = mysqli_fetch_array($query_food)){
-      $id = $array_food['id']; ?>
-      <div class="w3-third w3-container">
-      <div class="w3-display-container">
-        <img src="<?php echo $array_food['img']; ?>" style="width:100%; heigh:100%">
-        <?php if($_SESSION['status'] == 'admin'){ ?>
-        <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black" onclick="document.getElementById('<?php echo $id; ?>').style.display='block'">Edit</button>
-            <form method="POST" action="remove.php">
-              <input type="hidden" value="<?php echo $id; ?>" name="id">
-             <input type="submit" value="Remove" class="w3-button w3-black">
-            </form>
-        </div>
-        <?php }else if($_SESSION['status'] == 'user'){ ?>
-          <div class="w3-display-middle w3-display-hover">
-            <form method="POST" action="addCart.php">
-              <input type="hidden" value="<?php echo $id; ?>" name="id">
-              <input type="hidden" value="<?php echo $array_food['name']; ?>" name="name">
-              <input type="hidden" value="<?php echo $array_food['price']; ?>" name="price">
-              <input type="hidden" value="<?php echo $array_food['img']; ?>" name="image">
-              <input type="hidden" value="1" name="quantity">
-             <input type="submit" value="Add to cart" class="w3-button w3-black">
-            </form>
-        </div>
+    <?php $details = mysqli_fetch_array($query_food); ?>
+    <h4> <?php echo $details['name']; ?> </h4>
+    <img src="<?php echo $details['img']; ?>" style="width:50%; heigh:50%">
+    <br><br>
+    <div class="container">
+    <table>
+      <tr>
+        <td><b>In stock</b></td>
+        <td><?php echo $details['amount']; ?></td>
+      </tr>
 
-        <?php } ?>  </div>
-        <p><a href="product_detail.php/?idq=<?php echo $id; ?>"><?php echo $array_food['name']; ?></a><br><b><?php echo $array_food['price']; ?> Baht.</b><br><?php echo $array_food['amount']; ?> available.</p>
-      </div>
-<?php    }
-  ?>
+      <tr>
+        <td><b>Prices</b></td>
+        <td><?php echo $details['price']; ?></td>
+      </tr>
+
+      <tr>
+        <td><b>Desciption</b></td>
+        <td><?php echo $details['des']; ?></td>
+      </tr>
+    </table>
+    </div>
   </div>
+
+  <br><br>
     
 
   
