@@ -26,7 +26,8 @@ if(in_array($_POST["id"], $item_id_list)){
 }else{
   $item_array = array(
     'item_id' => $_POST["id"],
-    'item_name'   => $_POST["name"],
+    'item_img' => $_POST["image"],
+    'item_name' => $_POST["name"],
     'item_price'  => $_POST["price"],
     'item_quantity'  => $_POST["quantity"]
    );
