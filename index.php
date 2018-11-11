@@ -134,7 +134,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     
 
   
-  <div class="w3-black w3-center w3-padding-24"> Welcome to N&N Café </div>
+  <div class="w3-black w3-center w3-padding-24"> Welcome to NJ Network Device</div>
 
   <!-- End page content -->
 </div>
@@ -248,7 +248,7 @@ if(isset($_COOKIE[$shopping_cart_name])){
   foreach($cart_data as $keys => $values){ ?>
   <th><img src="<?php echo $values["item_img"];; ?>" style="width: 30px; height: 30px;"></th>
   <td><a href="product_detail.php?idq=<?php echo $values["item_id"]; ?>"><?php echo $values["item_name"]; ?></a></td>
-  <td><input type="number" ></td>
+  <td><?php echo $values["item_quantity"]; ?></td>
   <td align="right"> <?php echo $values["item_price"]; ?></td>
     
                 
