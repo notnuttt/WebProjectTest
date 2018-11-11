@@ -43,10 +43,7 @@ echo $total;
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
+
 </style>
 <body class="w3-content" style="max-width:1200px">
 
@@ -111,23 +108,23 @@ table, th, td {
     <div class="container">
     <table>
       <tr>
-        <td><b>In stock</b></td>
-        <td><?php echo $details['amount']; ?></td>
+        <td><b>เหลือ   </b></td>
+        <td><?php echo $details['amount']; ?> ชิ้น</td>
       </tr>
 
       <tr>
-        <td><b>Prices</b></td>
-        <td><?php echo $details['price']; ?></td>
+        <td><b>ราคา</b></td>
+        <td><?php echo $details['price']; ?> บาท</td>
       </tr>
 
-      <tr>
-        <td><b>Desciption</b></td>
-        <td><?php echo $details['des']; ?></td>
-      </tr>
+      
+      
     </table>
     </div>
+    <h6><b>รายละเอียด</b></h6>
+    <p><?php echo $details['des']; ?></p>
   </div>
-
+  
   <br><br>
     
 
