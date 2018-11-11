@@ -51,7 +51,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <h3 class="w3-wide" ><a href="index.php" style="text-decoration: none"><b>NJ Network Devices</b></a></h3>
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">Menu</a>
+    <a href="#" class="w3-bar-item w3-button">Router Modem</a>
   </div>
  
   
@@ -248,7 +248,7 @@ if(isset($_COOKIE[$shopping_cart_name])){
   foreach($cart_data as $keys => $values){ ?>
   <th><img src="<?php echo $values["item_img"];; ?>" style="width: 30px; height: 30px;"></th>
   <td><a href="product_detail.php?idq=<?php echo $values["item_id"]; ?>"><?php echo $values["item_name"]; ?></a></td>
-  <td align="right"><?php echo $values["item_quantity"]; ?>x</td>
+  <td align="right">x<?php echo $values["item_quantity"]; ?></td>
   <td align="right"> <?php echo $values["item_price"]; ?></td>
     
                 

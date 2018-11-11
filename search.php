@@ -27,7 +27,7 @@ echo $total;
 
 if($query_food){ ?>
     <html>
-<title>Search result</title>
+<title>Search result - NJ Network Devices</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -45,7 +45,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>N&N Café</b></h3>
+    <h3 class="w3-wide"><b>NJ Network Devices</b></h3>
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
     <a href="index.php" class="w3-bar-item w3-button"> Home </a>
@@ -136,7 +136,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     
 
   
-  <div class="w3-black w3-center w3-padding-24"> Welcome to N&N Café </a></div>
+  <div class="w3-black w3-center w3-padding-24"> Welcome to NJ Network Devices </a></div>
 
   <!-- End page content -->
 </div>
