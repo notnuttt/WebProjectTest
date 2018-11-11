@@ -48,7 +48,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>N&N Café</b></h3>
+    <h3 class="w3-wide" ><a href="index.php" style="text-decoration: none"><b>NJ Network Devices</b></a></h3>
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
     <a href="#" class="w3-bar-item w3-button">Menu</a>
@@ -237,12 +237,20 @@ if(isset($_COOKIE[$shopping_cart_name])){
               <h2 class="w3-wide" >Items in cart</h2>
               <p style="align:center">Please checkout.</p>
               <table align="center">
+              <tr>
+    <th>Img</th>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Price</th>
+  </tr>
+  <tr>
 <?php
   foreach($cart_data as $keys => $values){ ?>
-              <tr>
-                <td><?php echo $values["item_name"]; ?></td>
-                <td> <?php echo $values["item_price"]; ?> Baht.</td>
-                <td>X<?php echo $values["item_quantity"]; ?></td>
+  <th><img src="<?php echo $values["item_img"];; ?>" style="width: 30px; height: 30px;"></th>
+  <td><a href="product_detail.php?idq=<?php echo $values["item_id"]; ?>"><?php echo $values["item_name"]; ?></a></td>
+  <td align="right"><?php echo $values["item_quantity"]; ?>x</td>
+  <td align="right"> <?php echo $values["item_price"]; ?></td>
+    
                 
                 <!-- <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td> -->
                 <!-- <td><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td> -->
@@ -251,7 +259,7 @@ if(isset($_COOKIE[$shopping_cart_name])){
 <?php
     } ?>
     </table>
-    <p>Total: <?php echo $total; ?> Baht.</p>
+    <p align="right">Total: <b><?php echo $total; ?></b> Baht.</p>
 <form method="POST" action="checkout_cart.php" enctype="multipart/form-data">
                 <input type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('thecart').style.display='none'" value="Checkout">
                 </form>
