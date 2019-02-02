@@ -50,9 +50,24 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide" ><a href="index.php" style="text-decoration: none"><b>NJ Network Devices</b></a></h3>
   </div>
-  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">Router Modem</a>
-  </div>
+  <?php if($_SESSION['status'] == 'admin'){ ?>
+    
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+      <a href="#" class="w3-bar-item w3-button">Router Modem</a>
+      <br>
+      <a href="forAdmin.php" class="w3-bar-item w3-button">ตั้งค่าคำถาม/คำตอบ</a>
+      <br>
+      <a href="forAdmin.php" class="w3-bar-item w3-button">ดูการสนทนาที่ยังไม่ได้ตอบ</a>
+    </div>
+
+  <?php } else {?>
+
+    <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+      <a href="#" class="w3-bar-item w3-button">Router Modem</a>
+    </div>
+
+  <?php }?>
+  
  
   
 </nav>
@@ -85,10 +100,10 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
         <?php
     if($_SESSION['status'] == NULL){ ?>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('login').style.display='block'">Login</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('login').style.display='block'">เข้าสู่ระบบ</a>
 <?php }else{ ?>
-    <a class="w3-bar-item w3-button w3-padding" style="color: grey;">Hello! <?php echo $_SESSION['username']; ?> </a>
-      <a class="w3-bar-item w3-button w3-padding" href="logout.php"> Logout </a>
+    <a class="w3-bar-item w3-button w3-padding" style="color: grey;">สวัสดี <?php echo $_SESSION['username']; ?> </a>
+      <a class="w3-bar-item w3-button w3-padding" href="logout.php"> ออกจากระบบ </a>
 <?php }
   ?>
     </p>
@@ -107,10 +122,10 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <img src="<?php echo $array_food['img']; ?>" style="width:100%; heigh:100%">
         <?php if($_SESSION['status'] == 'admin'){ ?>
         <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black" onclick="document.getElementById('<?php echo $id; ?>').style.display='block'">Edit</button>
+            <button class="w3-button w3-black" onclick="document.getElementById('<?php echo $id; ?>').style.display='block'">แก้ไข</button>
             <form method="POST" action="remove.php">
               <input type="hidden" value="<?php echo $id; ?>" name="id">
-             <input type="submit" value="Remove" class="w3-button w3-black">
+             <input type="submit" value="ลบ" class="w3-button w3-black">
             </form>
         </div>
         <?php }else if($_SESSION['status'] == 'user'){ ?>
@@ -146,12 +161,12 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
     <div class="w3-container w3-white w3-center">
       <i onclick="document.getElementById('login').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
-      <h2 class="w3-wide" >LOGIN</h2>
-      <p style="align:center">Please login to continue.</p>
+      <h2 class="w3-wide" >กรุณากรอกข้อมูล</h2>
+      <!-- <p style="align:center">Please login to continue.</p> -->
       <form method="POST" action="login.php">
-        <p><input class="w3-input w3-border" type="text" placeholder="Enter Username" name="username"></p>
-        <p><input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password"></p>
-        <input type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('login').style.display='none'" value="Login">
+        <p><input class="w3-input w3-border" type="text" placeholder="ชื่อผู้ใช้" name="username"></p>
+        <p><input class="w3-input w3-border" type="password" placeholder="รหัสผ่าน" name="password"></p>
+        <input type="submit" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('login').style.display='none'" value="เข้าสู่ระบบ">
 
       </form>
       
@@ -182,8 +197,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
     <div class="w3-container w3-white w3-center">
       <i onclick="document.getElementById('addItem').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
-      <h2 class="w3-wide" >Add New ITEM</h2>
-      <p style="align:center">Please fill the item details.</p>
+      <h2 class="w3-wide" >เพิ่มสินค้า</h2>
+      <p style="align:center">โปรดกรอกข้อมูลของสินค้า</p>
       <form method="POST" action="addItem.php" enctype="multipart/form-data">
         <p><input class="w3-input w3-border" type="text" placeholder="Enter Name" name="itemName"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Price" name="price"></p>
